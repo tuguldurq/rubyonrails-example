@@ -1,4 +1,6 @@
-<%= link_to "Create", new_article_path %>
+<div class="text-end">
+  <%= link_to "Create", new_article_path, class: "btn btn-primary" %>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -10,14 +12,14 @@
   </thead>
   <tbody>
     <% @articles.each_with_index do |article, index|%>
-        <tr>
+      <tr>
         <th scope="row"><%= index + 1%></th>
         <td><%= article.title %></td>
         <td><%= article.body %></td>
         <td>
             <a href="<%= article_path(article)  %>">Show</a>
         </td>
-        </tr>
+      </tr>
     <% end %>
   </tbody>
 </table>

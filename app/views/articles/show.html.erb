@@ -9,7 +9,7 @@
         <p><%= @article.title %></p>
     </div>
     <div class="p-1 ms-auto">
-        <a href="<%= edit_article_path(@article) %>"> edit </a>
+        <%= link_to "Edit", edit_article_path(@article), class: "mr-2" %>
         <%= link_to "Destroy", article_path(@article), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
     </div>
 </div>
