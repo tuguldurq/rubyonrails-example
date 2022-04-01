@@ -1,0 +1,19 @@
+<% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name + " alert-success" %>
+<% end -%>
+<div class="d-flex">
+    <div>
+        <p class="text-muted lead"> Title : </p> 
+    </div>
+    <div class="py-1 px-4">
+        <p><%= @article.title %></p>
+    </div>
+    <div class="p-1 ms-auto">
+        <a href="<%= edit_article_path(@article) %>"> edit </a>
+        <%= link_to "Destroy", article_path(@article), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
+    </div>
+</div>
+<div class="article-body my-4">
+    <p><%= @article.body %> </p>
+</div>
+<div> <%= @article.created_at %> </div>
