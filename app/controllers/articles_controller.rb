@@ -17,6 +17,8 @@ class ArticlesController < ApplicationController
         if @article.update(article_params)
             flash[:alert] = "You have successfully updated. "
             redirect_to @article
+        else
+            render :edit, status: :unprocessable_entity
         end
     end
     
