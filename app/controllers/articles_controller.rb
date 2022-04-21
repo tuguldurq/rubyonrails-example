@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
 
     def edit
         @article = Article.find(params[:id])
+        @files = Upload.find(params[:id])
     end
 
     def update
@@ -27,8 +28,14 @@ class ArticlesController < ApplicationController
     end
     
     def create
+        uploaded_file = params[:article][:file].original_filename
         @article = Article.new(article_params)
+        
         if @article.save
+            File.open(Rails.root.join('public', 'uploads', uploaded_file), 'wb') do |file|
+                Upload.create(path: uploaded_file, article_id: @article.id)
+                file.write(uploaded_file)
+            end
             redirect_to @article
         else 
             render :new, status: :unprocessable_entity

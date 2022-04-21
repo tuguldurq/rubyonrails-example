@@ -13,14 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
-@import "bootstrap";
-
-.invalid-feedback{
-    display: block;
+ .invalid-feedback{
+    display: block !important;
 }
-.field_with_errors {
-    input, textarea{
-        border-color: #dc3545;
-    }
-} 

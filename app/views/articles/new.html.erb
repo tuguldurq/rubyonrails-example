@@ -1,6 +1,6 @@
 <h3>New Article</h3>
 
-<%= form_with model: @article do |form|%>
+<%= form_with model: @article, multipart:true do |form|%>
     <div class="row mt-5">
         <div class="col-sm-2">
             <%= form.label :title %>
@@ -14,7 +14,7 @@
     </div>
     <div class="row my-5">
         <div class="col-sm-2">
-            <%= form.label :body, class: "col-sm-2" %>
+            <%= form.label :body %>
         </div>
         <div class="col-sm-10">
             <%= form.text_area :body, class: "form-control" %>
@@ -23,7 +23,15 @@
             <% end %>
         </div>
     </div>
-    <div class="text-center">
+    <div class="row">
+        <div class="col-sm-2">
+            <%= form.label :file %>
+        </div>
+        <div class="col-sm-10">
+            <%= form.file_field :file, class: "form-control" %>
+        </div>
+    </div>
+    <div class="text-center mt-5">
         <%= form.submit "Save", class: "btn btn-primary" %>
     </div>
 <% end %>

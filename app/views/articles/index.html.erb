@@ -12,8 +12,8 @@
   </thead>
   <tbody>
     <% @articles.each_with_index do |article, index|%>
-      <tr>
-        <th scope="row"><%= index + 1%></th>
+      <tr data-test="article-item">
+        <th scope="row"><%= index + 1 %></th>
         <td><%= article.title %></td>
         <td><%= article.body %></td>
         <td>
